@@ -36,12 +36,12 @@ class Graph:
         visited: set[Node] = set()
         result: list[Node] = []
 
-        def rec(n: Node):
-            if n in visited:
+        def rec(node: Node) -> None:
+            if node in visited:
                 return
-            result.append(n)
-            visited.add(n)
-            for x in n.outbound:
+            result.append(node)
+            visited.add(node)
+            for x in node.outbound:
                 rec(x)
 
         rec(self._root)
@@ -53,12 +53,12 @@ class Graph:
 
         stack: list[Node] = [self._root]
         while stack:
-            n = stack.pop()
-            if n in visited:
+            node = stack.pop()
+            if node in visited:
                 continue
-            result.append(n)
-            visited.add(n)
-            stack.extend(reversed(n.outbound))
+            result.append(node)
+            visited.add(node)
+            stack.extend(reversed(node.outbound))
 
         return result
 
@@ -68,7 +68,7 @@ class Graph:
 
         queue: deque[Node] = deque([self._root])
         while queue:
-            node: Node = queue.popleft()
+            node = queue.popleft()
             if node in visited:
                 continue
             visited.add(node)
