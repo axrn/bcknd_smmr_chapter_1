@@ -58,7 +58,7 @@ class Graph:
                 continue
             result.append(n)
             visited.add(n)
-            stack.extend(n.outbound[::-1])
+            stack.extend(reversed(n.outbound))
 
         return result
 
