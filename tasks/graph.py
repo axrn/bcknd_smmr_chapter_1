@@ -41,8 +41,8 @@ class Graph:
                 return
             result.append(node)
             visited.add(node)
-            for x in node.outbound:
-                rec(x)
+            for adjacent_node in node.outbound:
+                rec(adjacent_node)
 
         rec(self._root)
         return result
