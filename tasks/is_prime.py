@@ -19,4 +19,5 @@ def is_prime(number: int) -> bool:
     for i in range(3, int(number**0.5) + 1, 2):
         if number % i == 0:
             return False
+
     return True
